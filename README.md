@@ -17,7 +17,7 @@ Welcome to the repository for **Strikem**, a real-time pool hall management and 
 
 ### Deployment & Hosting
 - **Platform**: Amazon Web Services (AWS)
-- **Containerization**: Docker + Docker Compose (development and local testing)
+- **Containerization**: Docker + Docker Compose 
 - **Hosting Services**: EC2, RDS, S3, Lambda, SQS, SNS, CodePipeline, EventBridge
 
 ---
@@ -73,7 +73,8 @@ This allowed me to offload routine and scheduled operations from Celery, enhanci
 - **CodePipeline** automates the deployment process:
   - Code changes are pulled from GitHub
   - Artifacts are stored in an **S3 bucket**
-  - Deployment steps trigger Lambda or EC2 update procedures as required
+  - CodeBuild is inside VPC and runs tests and migrations
+  - CodeDeploy uses AllAtOnce strategy for auto scaling groups.
 
 ---
 
@@ -88,9 +89,7 @@ This allowed me to offload routine and scheduled operations from Celery, enhanci
 ## ✅ Improvements Over DigitalOcean Setup
 | Feature | DigitalOcean | AWS |
 |--------|--------------|-----|
-| Hosting | Docker Compose on Droplets | Managed EC2, RDS, Lambda, etc. |
 | Task Scheduling | Celery Beat | EventBridge + Lambda |
-| Media | S3 | Still S3 (no change) |
 | Database | MySQL on Droplet | RDS MySQL (scalable, backed up) |
 | CI/CD | Manual or GitHub Actions | Fully automated CodePipeline |
 | Security | SSH to all servers | Bastion + Private Subnets + IAM |
