@@ -2,6 +2,10 @@
 
 Welcome to the repository for **Strikem**, a real-time pool hall management and matchmaking platform. This README describes the updated AWS-based infrastructure, improved from the previous DigitalOcean deployment. It outlines how core services interact, and the enhancements made for scalability, automation, and performance.
 
+
+## Architecture Visualization
+
+![Strikem AWS](Strikem-finished.jpg)
 ---
 
 ## ✨ Tech Stack
